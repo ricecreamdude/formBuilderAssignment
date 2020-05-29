@@ -1,0 +1,82 @@
+<h1>{{this.title}}</h1>
+
+<form [formGroup]="mainFormGroup" id="main-form">
+
+  <div class="form-field">
+    <label for="firstName">First Name: </label> <br/>
+    <input name="firstName" formControlName="firstName">
+    <div class="error">
+      <span *ngIf="submitted && formControls['firstName'].errors?.required">First name is required.</span>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label for="lastName">Last Name: </label> <br/>
+    <input name="lastName" formControlName="lastName">
+    <div class="error">
+      <span *ngIf="submitted && formControls['lastName'].errors?.required">Last name is required.</span>
+    </div>
+  </div>
+
+  <div class="form-field">
+    <label for="email">Salary: </label> <br/>
+    <input name="email" formControlName="salary">
+    <div class="error">
+      <span *ngIf="submitted && formControls['salary'].errors?.required">Please enter a salary.</span>
+    </div>
+  </div>
+  <div class="form-field">
+    <label for="email">Age: </label> <br/>
+    <input name="email" formControlName="age">
+    <div class="error">
+      <span *ngIf="submitted && formControls['age'].errors?.required">Please enter an age.</span>
+      <span *ngIf="submitted && formControls['age'].errors?.min">You're too young, please be older.</span>
+      <span *ngIf="submitted && formControls['age'].errors?.max">No dinosaurs allowed, please enter a younger age.</span>
+    </div>
+  </div>
+  <div class="form-field">
+    <label for="email">Email: </label> <br/>
+    <input name="email" formControlName="email">
+    <div class="error">
+      <span *ngIf="submitted && formControls['email'].errors?.required">An email is required.</span>
+    </div>
+  </div>
+  <div class="form-field">
+    <label for="email">Verify Email: </label> <br/>
+    <input name="email" formControlName="verifyEmail">
+    <div class="error">
+      <span *ngIf="submitted && formControls['verifyEmail'].errors?.mustMatch">Email must match.</span>
+    </div>
+  </div>
+
+  <h3>Nested Form</h3>
+  <div class='internal'>
+    <form [formGroup]="formControls['career']"> 
+      <div class="form-field">
+        <label for="email">Job Title: </label> <br/>
+        <input name="email" formControlName="jobTitle">
+        <div class="error">
+          <span *ngIf="submitted && intFormControls['jobTitle'].errors?.required">Job title is required.</span>
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="email">Manager: </label> <br/>
+        <input name="email" formControlName="manager">
+        <div class="error">
+          <span *ngIf="submitted && intFormControls['manager'].errors?.required">Please enter a manager.</span>
+        </div>
+      </div>
+      <div class="form-field">
+        <label for="company">Company Name: </label> <br/>
+        <input name="company" formControlName="companyName">
+        <div class="error">
+          <span *ngIf="submitted && intFormControls['companyName'].errors?.required">Please enter a company name.</span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- <button [disabled]='!this.formControls.errors' (click)="submitForm()">Submit</button> -->
+  <button (click)="submitForm()">Submit</button>
+
+</form>

@@ -1,0 +1,83 @@
+<!-- <p>Hey, My name is {{employeeName}}</p>
+
+
+<h1>{{datatoemployee}}</h1>
+
+<a routerLink="/dashboard">link to dashboard</a>
+ 
+<img [src]="imageurl">
+
+<button (click)="btnClick()">Change Employee Name</button>
+
+<input type="text" placeholder="Employee Name" [(ngModel)]="employeeName">
+
+<div *ngFor="let emp of employees">{{emp.Name}} has Exp {{emp.Exp}}</div>
+
+<div *ngIf="employees.length==3">ng-if{{employees.length}} </div>
+<br/>
+<hr/> -->
+
+<!-- Structural Directives?-->
+
+<!-- 
+  ngFor
+  ngIf
+  ngSwitch 
+-->
+
+<!-- Switch Case Directive -->
+<!-- <div [ngSwitch]="employees.length" >
+<div *ngSwitchCase="'1'">Matched case 1 </div>
+<div *ngSwitchCase="'2'">Matched Case 2  </div>
+<div *ngSwitchCase="'3'">Matched Case 3  </div> -->
+
+<h1>Form Controls!!</h1>
+  <div>
+    <!-- Form Control outside of form group-->
+    <h3> Single Form Control</h3>
+    <input type="text" [formControl]="singleControl"> 
+    <div *ngIf="singleControl.errors?.required"> NAME PLEASE</div>
+
+    <br /> <br /> 
+
+    <h2> Grouping Form Controls</h2>
+    <!-- <form [formGroup]="employeeNameFormGroup">
+
+      <div>
+        <label for="fName" >First Name:</label> 
+        <input name="fName" type="text" 
+          formControlName="firstName"
+        >
+        <div *ngIf="firstName.errors.required"> <span> First name is required.</span></div>
+      </div>
+      <div>
+        <label for="lName"> Last Name:</label>
+        <input name="lName" type="text" 
+          formControlName="lastName"
+        >
+        <div *ngIf="lastName.errors.required"> <span> Last name is required.</span></div>
+      </div>
+    </form> -->
+    <br /> <br /> 
+    <!-- Pooja Demo Form-->
+    <h2> Pooja Form Demo</h2>
+    <form [formGroup]="sollersEmployeeFormGroup">
+      
+      <label for="firstName">First Name: </label>
+      <input name="firstName" type="text" formControlName="firstName">
+      <div *ngIf="formControls.firstName.errors?.required"> <span> First name is required.</span></div>
+      <label for="lastName">Last Name: </label>
+      <input name="lastName" type="text" formControlName="lastName">
+      <div *ngIf="formControls.firstName.errors?.required"> <span> Last name is required.</span></div>
+
+      <h4>Inner Form </h4>
+
+      <button [disabled]="!this.sollersEmployeeFormGroup.valid" (click)="nameChange()">Submit</button>  
+
+    </form>
+
+
+  </div>
+
+<!-- Example Code -->
+<!-- </div> -->
